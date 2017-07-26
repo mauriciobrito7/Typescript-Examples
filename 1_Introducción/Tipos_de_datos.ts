@@ -52,10 +52,10 @@ class Human{
     }
 }
 
-class Men extends Human{
+class Man extends Human{
     constructor(name:string){
         super(name);
     }
 }
 
-var men = new Men('Pepe');
+var men = new Man('Pepe');
