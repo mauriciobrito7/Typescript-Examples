@@ -39,12 +39,17 @@ function getAnimal (): Fish | Bird{
     var a : Fish;
     return a;
 }
+
+function isFish( pet: Fish | Bird ): pet is Fish{ 
+    return (<Fish>pet).swim != undefined;
+}
+
 /*Solo tendría el método de la unión */
 let pet = getAnimal();
 pet.layEggs();
 
-if((<Fish>pet).swim){
+if(isFish(pet)){
     (<Fish>pet).swim();
-}else if ((<Bird>pet).fly){
-    (<Bird>pet).fly();
+}else{
+    pet.fly();
 }

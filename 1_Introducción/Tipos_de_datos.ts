@@ -1,4 +1,4 @@
-/*Cosas básicas */
+/*Tipos primitivos */
 var a:number;
 var b:string;
 var c:boolean;
