@@ -38,3 +38,40 @@ setTimeout(person2.growOld,1000);
 setTimeout(function(){
 console.log(person2.age);
 },1000)
+
+//Para capturar argumentos ¿Cuándo es necesario utilizar una fat arrow? Es necesario utilizarla cuando la función va ha ser llamada por otra clase o por otro método de la siguiente forma:
+
+var growOld = person2.growOld;
+//¿Cómo utilizar funciones con herencia?
+/*
+En caso de que quieras sobreescribir una función de la clase padre siempre deberemos realizar una copia de este, por ejemplo:
+*/
+class Adder{
+    //This function is now safe to pass around
+    add = (b:string):string =>{
+        return b;
+    }
+}
+
+class ExtendedAdder extends Adder{
+    //Create a copy of parent before creating our own
+    private superAdd = this.add;
+    //Now create our override
+    add = (b:string): string =>{
+        return this.superAdd(b);
+    }
+}
+
+//Cadenas de fat arrow (currying)
+/*Es una seria de funciones encadenas el uso es simple y es el siguiente: */
+
+//A curried function
+let add = (x:number) =>(y:number)=> x+y;
+//Simple usage
+add(123)(456);
+
+//partially applied
+let add123 = add(123);
+
+//fully apply the function
+add123(456);
